@@ -4,7 +4,7 @@ from django.template.loader import get_template
 
 def home_page(request):
     my_title = "Hello there..."
-    context = {"title": my_title}
+    context = {"title": my_title, "my_list": [1, 2, 3, 4, 5]}
     return render(request, 'home.html', context)
 
 
@@ -20,5 +20,4 @@ def example_page(request):
     template_name = "Hello_World.html"
     template_obj = get_template(template_name)
     rendered_item = template_obj.render(context)
-    return HttpResponse(rendered_item)                           #(request, 'Hello_World.html', {"title": "Contact us"})
-
+    return HttpResponse(rendered_item)
